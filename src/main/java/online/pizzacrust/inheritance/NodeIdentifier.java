@@ -101,7 +101,7 @@ public class NodeIdentifier {
         List<IdentifiedSubNode> combinedNodes = new ArrayList<>();
         combinedNodes.addAll(fields);
         combinedNodes.addAll(methods);
-        return new IdentifiedRootNode(combinedNodes);
+        return new IdentifiedRootNode(rootNode.getName(), combinedNodes);
     }
 
     private IdentifiedSubNode<FieldNode> identifyField(RootNode.FieldCompatible declaringClass, FieldNode

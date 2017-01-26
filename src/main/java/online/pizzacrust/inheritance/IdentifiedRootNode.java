@@ -11,10 +11,16 @@ import java.util.List;
  */
 public class IdentifiedRootNode {
 
+    private final String name;
     private final List<IdentifiedSubNode> subNodes;
 
-    public IdentifiedRootNode(List<IdentifiedSubNode> nodes) {
+    public IdentifiedRootNode(String name, List<IdentifiedSubNode> nodes) {
+        this.name = name;
         this.subNodes = nodes;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public List<IdentifiedSubNode> getSubNodes() {
