@@ -21,6 +21,8 @@ public class NodeIdentifier {
 
     public List<IdentifiedRootNode> translateClasspath() {
         ArrayList<IdentifiedRootNode> identifiedRootNodes = new ArrayList<>();
+        classpath.forEach((classpathNode) -> identifiedRootNodes.add(this.identifyRootNode
+                (classpathNode)));
         return identifiedRootNodes;
     }
 
