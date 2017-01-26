@@ -86,6 +86,23 @@ public class NodeIdentifier {
                 meow2Super, mainClass)).identifyField((RootNode.FieldCompatible) mainClass,
                 oneField).getAbsoluteParent();
         System.out.println(parentClassOfOneField.getName());
+        IdentifiedRootNode mainClassIdentified = new NodeIdentifier(Arrays.asList(meow3Interface,
+                meow2Super, mainClass)).identifyRootNode(mainClass);
+        for (IdentifiedSubNode subNode : mainClassIdentified.getSubNodes()) {
+            System.out.println(subNode.getClass().getSimpleName() + ": " + subNode
+                    .getAbsoluteParent().getName() + "/" + subNode.getSubnode().getName());
+        }
+        List<IdentifiedRootNode> identifiedNodes = new NodeIdentifier(Arrays.asList
+                (meow3Interface, meow2Super, mainClass))
+                .translateClasspath();
+        for (IdentifiedRootNode rootNode : identifiedNodes) {
+            System.out.println(rootNode.getName() + " -- START ");
+            for (IdentifiedSubNode subNode : rootNode.getSubNodes()) {
+                System.out.println(subNode.getAbsoluteParent().getName() + "/" + subNode
+                        .getSubnode().getName());
+            }
+            System.out.println(rootNode.getName() + " -- END");
+        }
     }
 
     private IdentifiedRootNode identifyRootNode(RootNode rootNode) {
