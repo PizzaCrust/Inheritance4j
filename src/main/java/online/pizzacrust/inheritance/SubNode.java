@@ -79,6 +79,16 @@ public interface SubNode extends Comparable<SubNode> {
             ).compareTo(o.getAccess());
         }
 
+        @Override
+        public boolean equals(Object object) {
+            if (!getClass().isAssignableFrom(object.getClass())) {
+                return false;
+            }
+            SubNode subNode = (SubNode) object;
+            return subNode.getAccess() == this.access && subNode.getDesc().equals(this.desc) &&
+                    subNode.getName().equals(this.name);
+        }
+
     }
 
 }
